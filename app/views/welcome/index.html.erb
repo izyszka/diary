@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <title>My Little Webapp: Coding Is Magic</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://rawgithub.com/krzysztofbialek/Rails-Girls-Warsaw-App/master/style.css" />
+  </head>
+  <body>
+  	<h1>My Rails Girls Diary</h1>
+
+	  <img src="http://railsgirls.com/images/rg-warsaw.png" />
+
+    <div>
+      <ul>
+      <%= @websites.each do |website, title|  %>
+        <li><a href="<%=website%>"><%=title%></a></li>
+			<% end %>
+      </ul>
+	  </div>
+
+<div>
+  <h2 style = "text-align:center"><%= link_to("Posts", posts_path) %></h2>
+  <h2 style = "text-align:center"><%= link_to("Movies", movies_path) %></h2>
+</div>
+
+  </body>
+</html>

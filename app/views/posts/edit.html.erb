@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+    <title>My Little Webapp: Coding Is Magic</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://rawgithub.com/krzysztofbialek/Rails-Girls-Warsaw-App/master/style.css" />
+  </head>
+  <body>
+
+
+		<h1>Edit Post</h1>
+
+		<%= form_for(@post) do |form| %>
+		  <p><%= form.label("title") %></p>
+		  <p><%= form.text_field("title") %></p>
+		  <p><%= form.label("content") %></p>
+		  <p><%= form.text_area("content") %></p>
+		  <p><%= form.submit "Zapisz" %></p>
+		<% end %>
+
+
+
+	</body>
+</html>

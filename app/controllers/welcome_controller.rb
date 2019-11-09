@@ -1,0 +1,21 @@
+class WelcomeController < ApplicationController
+  def index
+
+  	@websites = [
+	    ["http://railsgirls.com", "Rails Girls"],
+	    ["https://en.wikibooks.org/wiki/Ruby_Programming", "Wikibooks"],
+	    ["http://guides.rubyonrails.org", "Ruby on Rails Guides"],
+		]
+
+  	@posts = Post.all
+
+  end
+
+  def izyszka
+
+  end
+  def posts
+  end
+  def movies
+  end
+end
