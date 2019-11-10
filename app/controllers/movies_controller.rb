@@ -11,7 +11,7 @@ class MoviesController < ApplicationController
     if Movie.create(movie_params)
       redirect_to movies_path
     else
-      render: :new
+      render :new
     end
   end
 
