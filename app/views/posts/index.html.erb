@@ -1,21 +1,10 @@
-<!doctype html>
-<html>
-  <head>
-    <title>My Little Webapp: Coding Is Magic</title>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="https://rawgithub.com/krzysztofbialek/Rails-Girls-Warsaw-App/master/style.css" />
-  </head>
-  <body>
+<h2 style = "text-align: center"><%= link_to("Home", root_path) %></h2>
+<h2 style = "text-align: center"><%= link_to("New post", new_post_path) %></h2>
 
-    <h2 style = "text-align: center"><%= link_to("Home", root_path) %></h2>
-	  <h2 style = "text-align: center"><%= link_to("New post", new_post_path) %></h2>
-
-	  <div>
-      <% @posts.each do |post|  %>
-        <h2><%= link_to(post.title, post_path(post.id)) %></h2>
-        <p><%= post.created_at.strftime("%F") %></p>
-		  	<p><%= post.content %></p>
-			<% end %>
-	  </div>
-  </body>
-</html>
+<div>
+  <% @posts.each do |post|  %>
+    <h2><%= link_to(post.title, post_path(post.id)) %></h2>
+    <p><%= post.created_at.strftime("%F") %></p>
+  	<p><%= post.content %></p>
+	<% end %>
+</div>

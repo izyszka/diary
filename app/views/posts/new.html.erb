@@ -1,22 +1,10 @@
-<!doctype html>
-<html>
-  <head>
-    <title>My Little Webapp: Coding Is Magic</title>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="https://rawgithub.com/krzysztofbialek/Rails-Girls-Warsaw-App/master/style.css" />
-  </head>
-  <body>
+<h2 style = "text-align: center"><%= link_to("Posts", posts_path) %></h2>
+<h1>New Post</h1>
 
-    <h2 style = "text-align: center"><%= link_to("Posts", posts_path) %></h2>
-		<h1>New Post</h1>
-
-		<%= form_for(@post) do |form| %>
-		  <p><%= form.label("title") %></p>
-		  <p><%= form.text_field("title") %></p>
-		  <p><%= form.label("content") %></p>
-		  <p><%= form.text_area("content") %></p>
-		  <p><%= form.submit "Zapisz" %></p>
-		<% end %>
-
-	</body>
-</html>
+<%= form_for(@post) do |form| %>
+  <p><%= form.label("title") %></p>
+  <p><%= form.text_field("title") %></p>
+  <p><%= form.label("content") %></p>
+  <p><%= form.text_area("content") %></p>
+  <p><%= form.submit "Zapisz" %></p>
+<% end %>

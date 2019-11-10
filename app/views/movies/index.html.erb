@@ -1,21 +1,10 @@
-<!doctype html>
-<html>
-  <head>
-    <title>My Little Webapp: Coding Is Magic</title>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="https://rawgithub.com/krzysztofbialek/Rails-Girls-Warsaw-App/master/style.css" />
-  </head>
-  <body>
+<h2 style = "text-align: center"><%= link_to("Home", root_path) %></h2>
+<h2 style = "text-align: center"><%= link_to("New movie", new_movie_path) %></h2>
 
-    <h2 style = "text-align: center"><%= link_to("Home", root_path) %></h2>
-	  <h2 style = "text-align: center"><%= link_to("New movie", new_movie_path) %></h2>
+<div>
+  <% @movies.each do |movie|  %>
+  	<h2><%= movie.title %></h2>
+  	<p><%= movie.director %></p>
 
-	  <div>
-      <% @movies.each do |movie|  %>
-		  	<h2><%= movie.title %></h2>
-		  	<p><%= movie.director %></p>
-
-			<% end %>
-	  </div>
-  </body>
-</html>
+	<% end %>
+</div>

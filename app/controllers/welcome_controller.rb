@@ -8,14 +8,8 @@ class WelcomeController < ApplicationController
 		]
 
   	@posts = Post.all
-
   end
 
   def izyszka
-
-  end
-  def posts
-  end
-  def movies
   end
 end
