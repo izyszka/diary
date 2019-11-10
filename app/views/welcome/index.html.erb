@@ -12,7 +12,7 @@
 
     <div>
       <ul>
-      <%= @websites.each do |website, title|  %>
+      <% @websites.each do |website, title|  %>
         <li><a href="<%=website%>"><%=title%></a></li>
 			<% end %>
       </ul>

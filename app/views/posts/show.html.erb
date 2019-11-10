@@ -9,13 +9,13 @@
 
     <h2 style = "text-align: center"><%= link_to("Posts", posts_path) %></h2>
 
-    <%= post = @post %>
     <div>
-      <h2><%= post.title %></h2>
-    	<p><%= post.content %></p>
-      <p><%= post.created_at.strftime("%F") %></p>
+      <h2><%= @post.title %></h2>
+    	<p><%= @post.content %></p>
+      <p><%= @post.created_at.strftime("%F") %></p>
 
-      <div style="float: left; text-align:center"><%= link_to("Delete", new_post_path) %></div>
+      <div style="float: left; text-align:center"><%= link_to("Delete", post_path(@post.id),
+                    method: :delete, data: { confirm: 'Are yfdfdou surre?' }) %></div>
       <div style="float: left; text-align:center"><%= link_to("Edit", edit_post_path) %></div>
 
     </div>
