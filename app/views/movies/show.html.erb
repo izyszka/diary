@@ -2,7 +2,7 @@
 
 <div>
   <h2><%= @movie.title %></h2>
-	<p><%= @movie.director %></p>
+  <p><%= @movie.director %></p>
 
   <div style="float: left; text-align:center"><%= link_to("Delete", movie_path(@movie.id),
                   method: :delete, data: { confirm: 'Are yfdfdou surre?' }) %></div>
