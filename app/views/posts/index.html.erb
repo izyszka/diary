@@ -12,10 +12,8 @@
 
 	  <div>
       <% @posts.each do |post|  %>
-        <h2 style="float:left"><%= post.title %></h2>
-        <p style="float:right"><%= link_to("Delete", new_post_path) %></p>
-        <p style="float:right"><%= link_to("Edit", new_post_path) %></p>
-        <p style="clear:both"><%= post.created_at.strftime("%F") %></p>
+        <h2><%= link_to(post.title, post_path(post.id)) %></h2>
+        <p><%= post.created_at.strftime("%F") %></p>
 		  	<p><%= post.content %></p>
 			<% end %>
 	  </div>

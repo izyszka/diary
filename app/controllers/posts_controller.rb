@@ -11,9 +11,13 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def show
+    @post = Post.find(params[:id])
+  end
+
   def update
     Post.update(params[:id], post_params)
-    redirect_to posts_path
+    redirect_to post_path
   end
 
   def create

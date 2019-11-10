@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+    <title>My Little Webapp: Coding Is Magic</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://rawgithub.com/krzysztofbialek/Rails-Girls-Warsaw-App/master/style.css" />
+  </head>
+  <body>
+
+    <h2 style = "text-align: center"><%= link_to("Posts", posts_path) %></h2>
+
+    <%= post = @post %>
+    <div>
+      <h2><%= post.title %></h2>
+    	<p><%= post.content %></p>
+      <p><%= post.created_at.strftime("%F") %></p>
+
+      <div style="float: left; text-align:center"><%= link_to("Delete", new_post_path) %></div>
+      <div style="float: left; text-align:center"><%= link_to("Edit", edit_post_path) %></div>
+
+    </div>
+
+  </body>
+</html>
