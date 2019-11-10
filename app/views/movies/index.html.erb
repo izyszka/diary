@@ -3,7 +3,7 @@
 
 <div>
   <% @movies.each do |movie|  %>
-  	<h2><%= movie.title %></h2>
+  	<h2><%= link_to(movie.title, movie_path(movie.id)) %></h2>
   	<p><%= movie.director %></p>
 
 	<% end %>

@@ -1,0 +1,11 @@
+<h2 style = "text-align: center"><%= link_to("Movies", movies_path) %></h2>
+
+<div>
+  <h2><%= @movie.title %></h2>
+  <p><%= @movie.director %></p>
+
+  <div style="float: left; text-align:center"><%= link_to("Delete", movie_path(@movie.id),
+                  method: :delete, data: { confirm: 'Are yfdfdou surre?' }) %></div>
+  <div style="float: left; text-align:center"><%= link_to("Edit", edit_movie_path) %></div>
+
+</div>
