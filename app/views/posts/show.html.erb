@@ -9,4 +9,15 @@
                 method: :delete, data: { confirm: 'Are yfdfdou surre?' }) %></div>
   <div style="float: left; text-align:center"><%= link_to("Edit", edit_post_path) %></div>
 
+  <br>
+  <hr>
+
+  <div>
+    <% @comments.each do |comment|  %>
+      <p><%= "#{time_ago_in_words(comment.created_at)} ago" %></p>
+      <p><%= comment.nick %></p>
+      <p><%= comment.body %></p>
+  	<% end %>
+  </div>
+
 </div>
