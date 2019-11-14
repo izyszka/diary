@@ -5,18 +5,33 @@
 	<p><%= @post.content %></p>
   <p><%= @post.created_at.strftime("%F") %></p>
 
-  <div style="float: left; text-align:center"><%= link_to("Delete", post_path(@post.id),
-                method: :delete, data: { confirm: 'Are yfdfdou surre?' }) %></div>
-  <div style="float: left; text-align:center"><%= link_to("Edit", edit_post_path) %></div>
+  <div>
+    <%= link_to("Delete", post_path(@post.id), method: :delete, data: { confirm: 'Are yfdfdou surre?' }) %>
+    <%= link_to("Edit", edit_post_path) %>
+  </div>
+
+  <br>
+  <hr>
+
+  <h3>Add comment:</h3>
+  <%= form_for([@post, @comment]) do |form| %>
+    <p><%= form.label("nick") %></p>
+    <p><%= form.text_field("nick") %></p>
+    <p><%= form.label("body") %></p>
+    <p><%= form.text_area("body") %></p>
+    <p><%= form.submit "Dodaj" %></p>
+  <% end %>
 
   <br>
   <hr>
 
   <div>
+    <h3>Comments:</h3>
     <% @comments.each do |comment|  %>
       <p><%= "#{time_ago_in_words(comment.created_at)} ago" %></p>
       <p><%= comment.nick %></p>
       <p><%= comment.body %></p>
+      <hr>
   	<% end %>
   </div>
 
