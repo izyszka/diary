@@ -19,6 +19,9 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
+    @rates_array = [[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10]]
+    @rates = @movie.rates
+    @rate = Rate.new
   end
 
   def edit
