@@ -19,9 +19,23 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
+
     @rates_array = [[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10]]
     @rates = @movie.rates
     @rate = Rate.new
+
+    @rates_sum = @rates.all
+
+    @sum = 0
+    @rates_sum.each do |rate|
+      @sum += rate.rate
+    end
+
+    if @rates.count ==0
+      @rating =0
+    else
+      @rating = @sum/@rates.count
+    end
   end
 
   def edit

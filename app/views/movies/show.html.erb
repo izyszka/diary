@@ -1,7 +1,7 @@
 <h2 style = "text-align: center"><%= link_to("Movies", movies_path) %></h2>
 
 <div>
-  <h2><%= @movie.title %></h2>
+  <h2 ><%= @movie.title %> <%= @rating%><%="/10"%><%=" ("%><%=@rates.count%><%=" votes)"%></h2>
   <p><%= @movie.director %></p>
 
   <div style="float: left; text-align:center"><%= link_to("Delete", movie_path(@movie.id),
