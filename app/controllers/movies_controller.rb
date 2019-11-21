@@ -1,4 +1,6 @@
 class MoviesController < ApplicationController
+  before_action :find_movie, only: [:show, :edit, :update, :destroy]
+
   def index
     @movies = Movie.all.order(created_at: :desc)
   end
@@ -18,33 +20,19 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @movie = Movie.find(params[:id])
-
-    @rates_array = [[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10]]
-    @rates = @movie.rates
     @rate = Rate.new
 
-    @rates_sum = @rates.all
-
-    @sum = 0
-    @rates_sum.each do |rate|
-      @sum += rate.rate
-    end
-
-    if @rates.count ==0
-      @rating =0
+    if @movie.rates.count ==0
+      @rating = 0
     else
-      @rating = @sum/@rates.count
+      @rating = @movie.rates.sum(:rate)/@movie.rates.count
     end
   end
 
   def edit
-    @movie = Movie.find(params[:id])
   end
 
   def update
-    @movie = Movie.find(params[:id])
-
     if @movie.update(movie_params)
       redirect_to movie_path
     else
@@ -53,7 +41,6 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-    @movie = Movie.find(params[:id])
     @movie.destroy
 
     redirect_to movies_path
@@ -63,5 +50,9 @@ class MoviesController < ApplicationController
 
   def movie_params
     params[:movie].permit(:title, :director)
+  end
+
+  def find_movie
+    @movie = Movie.find(params[:id])
   end
 end
