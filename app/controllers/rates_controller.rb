@@ -10,6 +10,6 @@ class RatesController < ApplicationController
   private
 
   def rate_params
-    params.permit(:rate, :movie_id)
+    params.permit(:rate)
   end
 end

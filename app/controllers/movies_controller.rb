@@ -22,10 +22,12 @@ class MoviesController < ApplicationController
   def show
     @rate = Rate.new
 
+    @rates_array = [[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10]]
+
     if @movie.rates.count ==0
       @rating = 0
     else
-      @rating = @movie.rates.sum(:rate)/@movie.rates.count
+      @rating = (@movie.rates.sum(:rate).to_f/@movie.rates.count.to_f).round(1)
     end
   end
 
