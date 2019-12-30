@@ -16,9 +16,6 @@
 
     <h3>Add comment:</h3>
     <%= form_for([@post, @comment]) do |form| %>
-      <p><%= form.label("nick") %></p>
-      <p><%= form.text_field("nick") %></p>
-      <p><%= form.label("body") %></p>
       <p><%= form.text_area("body") %></p>
       <p><%= form.submit "Dodaj" %></p>
     <% end %>
@@ -31,7 +28,7 @@
     <h3>Comments:</h3>
     <% @comments.each do |comment|  %>
       <p><%= "#{time_ago_in_words(comment.created_at)} ago" %></p>
-      <p><%= comment.nick %></p>
+      <p><%= comment.user.email.split('@').first %></p>
       <p><%= comment.body %></p>
       <hr>
   	<% end %>

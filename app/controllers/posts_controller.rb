@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:create, :new, :edit, :update, :destroy]
+  before_action :check_authorization, only: [:create, :new, :edit, :update, :destroy]
 
   def index
     @posts = Post.all.order(created_at: :desc)
@@ -50,5 +50,10 @@ class PostsController < ApplicationController
 
   def find_post
     @post = Post.find(params[:id])
+  end
+
+  def check_authorization
+    authenticate_user! unless current_user
+    redirect_to posts_path, notice: 'Nie weszłeś!' unless current_user.is_admin?
   end
 end
