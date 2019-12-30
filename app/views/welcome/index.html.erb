@@ -3,12 +3,23 @@
 <img src="http://railsgirls.com/images/rg-warsaw.png" />
 
 <div>
+  <% if !current_user %>
+    <h2 style = "text-align:center"><%= link_to("Sign in", new_user_session_path) %></h2>
+    <h2 style = "text-align:center"><%= link_to("Sign up", new_user_registration_path) %></h2>
+  <% else %>
+    <h2 style = "text-align:center"><%= link_to("Sign out", destroy_user_session_path, method: :delete) %></h2>
+  <% end %>
+</div>
+
+<div>
   <ul>
   <% @websites.each do |website, title|  %>
     <li><a href="<%=website%>"><%=title%></a></li>
 	<% end %>
   </ul>
 </div>
+
+
 
 <div>
   <h2 style = "text-align:center"><%= link_to("Posts", posts_path) %></h2>
