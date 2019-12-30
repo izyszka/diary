@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'welcome/izyszka', to: 'welcome#izyszka'
   root to: 'welcome#index'
 
