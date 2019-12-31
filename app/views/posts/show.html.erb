@@ -5,31 +5,32 @@
 	<p><%= @post.content %></p>
   <p><%= @post.created_at.strftime("%F") %></p>
 
-  <div>
-    <%= link_to("Delete", post_path(@post.id), method: :delete, data: { confirm: 'Are yfdfdou surre?' }) %>
-    <%= link_to("Edit", edit_post_path) %>
-  </div>
+  <% if current_user && current_user.is_admin? %>
+    <div>
+      <%= link_to("Delete", post_path(@post.id), method: :delete, data: { confirm: 'Are yfdfdou surre?' }) %>
+      <%= link_to("Edit", edit_post_path) %>
+    </div>
 
-  <br>
-  <hr>
-
-  <h3>Add comment:</h3>
-  <%= form_for([@post, @comment]) do |form| %>
-    <p><%= form.label("nick") %></p>
-    <p><%= form.text_field("nick") %></p>
-    <p><%= form.label("body") %></p>
-    <p><%= form.text_area("body") %></p>
-    <p><%= form.submit "Dodaj" %></p>
+    <br>
+    <hr>
   <% end %>
 
-  <br>
-  <hr>
+  <% if current_user  %>
+    <h3>Add comment:</h3>
+    <%= form_for([@post, @comment]) do |form| %>
+      <p><%= form.text_area("body") %></p>
+      <p><%= form.submit "Dodaj" %></p>
+    <% end %>
+
+    <br>
+    <hr>
+  <% end %>
 
   <div>
     <h3>Comments:</h3>
     <% @comments.each do |comment|  %>
       <p><%= "#{time_ago_in_words(comment.created_at)} ago" %></p>
-      <p><%= comment.nick %></p>
+      <p><%= comment.user.email.split('@').first %></p>
       <p><%= comment.body %></p>
       <hr>
   	<% end %>

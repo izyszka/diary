@@ -60,5 +60,8 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# connection to heroku 
+# connection to heroku
 gem 'rails_12factor', group: :production
+
+# devise
+gem 'devise'
