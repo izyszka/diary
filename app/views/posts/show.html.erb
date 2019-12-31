@@ -5,7 +5,7 @@
 	<p><%= @post.content %></p>
   <p><%= @post.created_at.strftime("%F") %></p>
 
-  <% if current_user %>
+  <% if current_user && current_user.is_admin? %>
     <div>
       <%= link_to("Delete", post_path(@post.id), method: :delete, data: { confirm: 'Are yfdfdou surre?' }) %>
       <%= link_to("Edit", edit_post_path) %>
