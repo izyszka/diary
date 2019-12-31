@@ -13,16 +13,18 @@
 
     <br>
     <hr>
+  <% end %>
 
+  <% if current_user  %>
     <h3>Add comment:</h3>
     <%= form_for([@post, @comment]) do |form| %>
       <p><%= form.text_area("body") %></p>
       <p><%= form.submit "Dodaj" %></p>
     <% end %>
-  <% end %>
 
-  <br>
-  <hr>
+    <br>
+    <hr>
+  <% end %>
 
   <div>
     <h3>Comments:</h3>
